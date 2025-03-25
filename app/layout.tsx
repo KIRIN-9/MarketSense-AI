@@ -1,15 +1,23 @@
-import type React from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: "MarketInsight AI - AI-Powered Market Research",
+  title: "MarketSense AI - Market Research Assistant",
   description:
-    "Get real-time insights, competitor analysis, and trend predictions—powered by AI and the best market research APIs.",
+    "AI-powered market research assistant that provides trends and insights based on user queries",
 };
 
 export default function RootLayout({
@@ -18,16 +26,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
+      >
+        <Header />
+        <main className="container mx-auto px-4 flex-grow">{children}</main>
+        <Footer />
       </body>
     </html>
   );
