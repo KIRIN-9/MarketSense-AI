@@ -1,12 +1,12 @@
-import { MainDashboard } from "@/components/dashboard/main-dashboard"
 import { MainSidebar } from "@/components/main-sidebar"
+import { ResearchInterface } from "@/components/research/research-interface"
 
-export default function Home() {
+export default function ResearchPage() {
   return (
     <div className="flex h-screen">
       <MainSidebar />
       <main className="flex-1 overflow-auto">
-        <MainDashboard />
+        <ResearchInterface />
       </main>
     </div>
   )
