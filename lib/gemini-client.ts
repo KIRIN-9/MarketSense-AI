@@ -30,7 +30,7 @@ export async function streamMarketResearch(
         "You are a professional market research analyst specializing in AI, technology, and financial markets. Provide detailed, data-driven insights with proper citations to reliable sources. Focus on current trends, market dynamics, and future projections.",
       onChunk: ({ chunk }) => {
         if (chunk.type === "text-delta") {
-          onChunk(chunk.text);
+          onChunk(chunk.textDelta);
         }
       },
     });
